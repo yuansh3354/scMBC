@@ -86,7 +86,4 @@ if(F){
 }
 sce = JoinLayers(sce)
 saveRDS(sce,'result/RDS/02.integrated.rpca.RDS')
-########################## 
-# INFO[SAVE FILENAME]: result/RDS/02.integrated.rpca.RDS
-# INFO[END TIME]: 2024-04-06 11:07:31
 
