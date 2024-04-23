@@ -32,6 +32,3 @@ if(T){
   )
   saveRDS(sce.merge.obj,'result/RDS/01.Merge_RawData.RDS')
 }
-
-# INFO[SAVE FILENAME]: result/RDS/01.Merge_RawData.RDS
-# INFO[END TIME]: 2024-04-06 11:04:53
