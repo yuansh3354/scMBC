@@ -406,5 +406,3 @@ saveRDS(sce,'result/RDS/03.Seurat.Sub.annotation.RDS')
 # INFO[SAVE FILENAME]: result/RDS/03.1.Macrophage.RDS
 # INFO[SAVE FILENAME]: result/RDS/03.1.Epithelium.RDS
 # INFO[SAVE FILENAME]: result/RDS/03.Seurat.Sub.annotation.RDS
-
-# INFO[END TIME]: 2024-04-06 12:16:41
