@@ -36,12 +36,12 @@ if(T){
   rm(temp)
   
   for(ids in ls(pattern = "_cellranger710$")){print(ids)}
-  sce.merge.obj = merge(`CA-10-1`,
-                        y=c(
-                          `CA-10-2`,`CA-11-1`,`CA-11-2`,`CA1225-1`,`CA1225-2`,
-                          `LN-10`,`LN-3-0913`,`M301_5T`,`MBDJ_2T`,`MLBA_1P`,
-                          `MLBA_1T`,`MLYJ_4T`,`MLYZ_3L`,`MLYZ_3T`,`mQD2-P`,
-                          `mQD2-T`,`N-3-0913`,`P-10`,`T-3-0913`)
+  ids = ls(pattern = "_cellranger710$")
+  sce.merge.obj = merge(get(ids[1]),
+                        y=c(get(ids[2]),get(ids[3]),get(ids[4]),get(ids[5]),get(ids[6])
+                           get(ids[7]),get(ids[8]),get(ids[9]),get(ids[10]),get(ids[11])
+                           get(ids[12]),get(ids[13]),get(ids[14]),get(ids[15]),get(ids[16])
+                           get(ids[17]),get(ids[18]),get(ids[19]),get(ids[20]))
   )
   saveRDS(sce.merge.obj,'result/RDS/01.Merge_RawData.RDS')
 }
