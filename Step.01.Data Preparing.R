@@ -1,16 +1,3 @@
-### ---------------
-### Create: Yuan.Sh, MD (ORCID: 0000-0002-6028-0185)
-### Date:  2024-04-06
-### Email: yuansh3354@163.com
-### Blog: https://blog.csdn.net/qq_40966210
-### Github: https://github.com/yuansh3354/
-### Official Account: DeepBioinformatics
-### Address:
-###         1. Fujian Medical University. No. 1 Xue Yuan Road, University Town, 350122 FuZhou Fujian, China.
-###         2. National Center for Nanoscience and Technology (NCNST). No.11 ZhongGuanCun BeiYiTiao, 100190 Beijing, China.
-###         3. Department of Urology, National Cancer Center/National Clinical Research Center for Cancer/Cancer Hospital, Chinese Academy of Medical Sciences and Peking Union Medical College, Beijing, 100021 China
-### ---------------
-
 setwd("/Volumes/BANQ/")
 rm(list = ls())
 gc(reset = T)
