@@ -1,18 +1,6 @@
-
-setwd("/Volumes/BANQ/")
-rm(list = ls())
-gc(reset = T)
-source('script/00.Functions.R')
-# unload packages
-pkgs[which(load.packages == F)]
-
-########################## Step.05 T Cell ##########################
+########################## Step.04 T Cell ##########################
 Tcell = readRDS('result/RDS/03.1.Tcell.RDS')
-Tcell$Subtype = ifelse( Tcell$Subtype =='CD8_NK/NKT','NK/NKT',Tcell$Subtype)
-Idents(Tcell) = Tcell$Subtype
-Tcell$Type = factor(Tcell$Type,levels = c("Local","Near",'Lymph'))
-
-########################## Step.05.1 UMAP ##########################
+########################## Step.04.1 UMAP ##########################
 sce = Tcell
 DimPlot(sce, group.by = 'Subtype',raster = F,order = T) + NoLegend()+
   theme(
@@ -63,10 +51,8 @@ distribution_Roe(
   tile_color = NA
 )
 
-########################## Step.05.2 DEGs ##########################
+########################## Step.04.2 DEGs ##########################
 sce = Tcell
-# paste(unique(sce$Subtype), collapse = ", ")
-ids.cells = trimws(strsplit("NK/NKT, CD4_Naive, CD8_Cytotoxic",',')[[1]])
 ids.type = unique(sce$Type)
 sce = subset(sce, ident = ids.cells)
 ids.genes = trimws(strsplit("PDCD1, CTLA4, LAG3, TIM3, TIGIT, IDO1 HLA-G, VISTA",',')[[1]])
