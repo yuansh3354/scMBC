@@ -1,5 +1,5 @@
 ########################## Step.03.1 UMAP & Markers ##########################
-epi = readRDS('result/RDS/03.1.Epithelium.RDS')
+epi = readRDS('Epithelium.RDS')
 sce = epi
 
 # UMAP
@@ -70,11 +70,6 @@ dataset <- wrap_expression(
 
 guidelines <- guidelines_shiny(dataset)
 methods_selected <- guidelines$methods_selected
-
-# Set Prolifications as start cells, cause of no specific markers
-dataset <- dataset %>% add_prior_information(start_id =
-                                               rownames(sce@meta.data[which(sce$Subtype == 'Prolification-like'),])
-)
 
 # select paga_tree 
 model <- infer_trajectory(dataset, 'paga_tree')
