@@ -1,16 +1,6 @@
-setwd("/Volumes/BANQ/")
-rm(list = ls())
-gc(reset = T)
-source('script/00.Functions.R')
-# unload packages
-pkgs[which(load.packages == F)]
-
-########################## Step.07 CAFs ##########################
-caf = readRDS('result/RDS/03.1.fibroblast.RDS')
-use.cells = caf@meta.data[which(caf$Type !='Lymph'),] %>% rownames() 
-caf = subset(caf, cells = use.cells)
-
-########################## Step.07.1 UMAP ##########################
+########################## Step.06 CAFs ##########################
+caf = readRDS('fibroblast.RDS')
+########################## Step.06.1 UMAP ##########################
 sce = caf
 DimPlot(sce, group.by = 'Subtype',raster = F,order = T) + NoLegend()+
   theme(
@@ -70,7 +60,7 @@ x = jjDotPlot(object = caf,
               tile.geom = T) + coord_flip()
 x
 
-########################## Step.07.2 scrabble for Meta module ##########################
+########################## Step.06.2 scrabble for Meta module ##########################
 sce = caf
 degs = FindAllMarkers(sce, only.pos = T, logfc.threshold = 1,min.pct = 0.5)
 sce = AddModuleScore(sce,features = split(degs$gene,degs$cluster))
@@ -93,7 +83,7 @@ ggplot(df, aes(x = X, y = Y, color = Subtype)) +
   geom_hline(yintercept = 0, linetype = "dashed") + 
   theme(legend.position = "none") + labs(x='',y='')
 
-########################## Step.07.2 ssGSVA ##########################
+########################## Step.06.3 ssGSVA ##########################
 res.list = list()
 library(splatter)
 library(Seurat)
