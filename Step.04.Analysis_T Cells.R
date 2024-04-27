@@ -1,5 +1,5 @@
 ########################## Step.04 T Cell ##########################
-Tcell = readRDS('result/RDS/03.1.Tcell.RDS')
+Tcell = readRDS('Tcell.RDS')
 ########################## Step.04.1 UMAP ##########################
 sce = Tcell
 DimPlot(sce, group.by = 'Subtype',raster = F,order = T) + NoLegend()+
