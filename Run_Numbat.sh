@@ -8,14 +8,6 @@ myPath=/media/MaleBRCA
 OUTdir=$myPath/result/OUT_Numbat
 mkdir -p $OUTdir
 cd $OUTdir
-
-if [ -f $myPath/Numbat.list ]; then
-  rm $myPath/Numbat.list
-  ls -d $myPath/data/*_cellranger710/ >> $myPath/Numbat.list
-else
-  ls -d $myPath/data/*_cellranger710/ >> $myPath/Numbat.list
-fi
-
 cat $myPath/Numbat.list | while read id
 do
 SAMPLEID=$(echo "$id" | cut -d'/' -f7)
