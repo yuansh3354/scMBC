@@ -1,14 +1,7 @@
-setwd("/Volumes/BANQ/")
-rm(list = ls())
-gc(reset = T)
-source('script/00.Functions.R')
-# unload packages
-pkgs[which(load.packages == F)]
+########################## Step.05 Macrophage ##########################
+mph = readRDS('Macrophage.RDS')
 
-########################## Step.06 Macrophage ##########################
-mph = readRDS('result/RDS/03.1.Macrophage.RDS')
-
-########################## Step.06.1 UMAP ##########################
+########################## Step.05.1 UMAP ##########################
 sce = mph
 DimPlot(sce, group.by = 'Subtype',raster = F,order = T) + NoLegend()+
   theme(
@@ -36,8 +29,6 @@ x = ggplot(count_df, aes(x = Type, y = Percentage, fill = Subtype)) +
   theme_minimal() + scale_fill_manual(values = mph.colors)
 x
 topptx(x,'plts/mph-type.pptx')
-source("script/distribution_Roe.R")
-
 metainfo = FetchData(sce, vars = c('CellID','Type','Subtype'))
 distribution_Roe(
   meta_data = metainfo,
@@ -48,11 +39,6 @@ distribution_Roe(
   celltype_color = mph.colors,relative_width = 0.7,
   tile_color = NA
 )
-
-
-
-
-
 ggsave2('plts/roe.pdf',height = 6,width = 4)
 
 
@@ -87,7 +73,7 @@ x = jjDotPlot(object = sce,
               legend.position='bottom',
               # point.geom = F,
               tile.geom = T)
-########################## Step.06.2 Mph ssGSEA ##########################
+########################## Step.05.2 Mph ssGSEA ##########################
 sce = mph
 if(F){
   deg.list = list()
