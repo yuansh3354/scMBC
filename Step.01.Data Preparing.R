@@ -1,9 +1,3 @@
-setwd("/Volumes/BANQ/")
-rm(list = ls())
-gc(reset = T)
-source('script/00.Functions.R')
-# unload packages
-pkgs[which(load.packages == F)]
 ########################## Step.01 Load data ########################## 
 # Load all CellRanger result
 if(T){
